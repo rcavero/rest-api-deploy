@@ -1,0 +1,58 @@
+### Recuperar todas las películas
+GET http://localhost:3001/movies
+
+### Recuperar una película por id
+GET http://localhost:3001/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
+
+### Recuperar todas las películas de un género
+GET http://localhost:3001/movies?genre=animation
+
+### Crear una plícula con POST: Master and Commander
+POST http://localhost:3001/movies
+Content-Type: application/json
+
+{
+  "title": "Master and Commander",
+  "year": 2003,
+  "director": "Peter Weir",
+  "duration": 137,
+  "poster": "https://pics.filmaffinity.com/master_and_commander_the_far_side_of_the_world-815088478-large.jpg",
+  "genre": ["Adventure", "Action"],
+  "rate": 9.9
+}
+
+### Crear una plícula con POST: Cinema Paradiso
+POST http://localhost:3001/movies
+Content-Type: application/json
+
+{
+  "title": "Cinema Paradiso",
+  "year": 1988,
+  "director": "Giuseppe Tornatore",
+  "duration": 155,
+  "poster": "https://pics.filmaffinity.com/nuovo_cinema_paradiso-312728781-large.jpg",
+  "genre": ["Drama", "Comedy"],
+  "rate": 8.3
+}
+
+### Intento de crear una plícula con ERRORES
+POST http://localhost:3001/movies
+Content-Type: application/json
+
+{
+  "title": "Cinema Paradiso",
+  "year": 1988.4,
+  "director": "Giuseppe Tornatore",
+  "duration": 155,
+  "poster": "ics.filmaffinity.com/nuovo_cinema_paradiso-312728781-large.jpg",
+  "genre": ["Drama", "Comedy", "Alegría"],
+  "rate": 18.3
+}
+
+### Actualizar una película con PATCH
+PATCH http://localhost:3001/movies/6a360a18-c645-4b47-9a7b-2a71babbf3e0
+Content-Type: application/json
+
+{
+  "rate": 7.6
+}
